@@ -7,6 +7,7 @@ def run(String repoUrl, String branch) {
         sh "git clone -b ${branch} ${repoUrl} ."
     } else {
         // Windows
+        deleteDir()
         bat "git clone -b ${branch} ${repoUrl} ."
     }
 }
