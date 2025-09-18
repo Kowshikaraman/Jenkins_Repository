@@ -11,5 +11,13 @@ pipeline {
                 }
             }
         }
+        stage("Create Image of ExpressJS App..."){
+            steps{
+                script{
+                    def createImage = load "pipelines/createimage.groovy"
+                    createImage.build()
+                }
+            }
+        }
     }
 }
