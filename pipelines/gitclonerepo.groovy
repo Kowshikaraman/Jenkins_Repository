@@ -1,4 +1,4 @@
-def run(String repoUrl, String branch, String folder) {
+def run(String repoUrl, String branch) {
     echo "📥 Cloning ${repoUrl} (branch: ${branch}) into Workspace"
 
     // Detect OS
