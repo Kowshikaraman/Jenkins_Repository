@@ -1,8 +1,14 @@
-def run(String repoUrl, String branch = "main", String targetDir = "repo") {
-    echo "📥 Cloning ${repoUrl} (branch: ${branch}) into ${targetDir}"
-    sh """
-        rm -rf ${targetDir}
-        git clone --branch ${branch} ${repoUrl} ${targetDir}
-    """
+def run(String repoUrl, String branch, String folder) {
+    echo "📥 Cloning ${repoUrl} (branch: ${branch}) into ${folder}"
+
+    // Detect OS
+    if (isUnix()) {
+        // Linux / macOS
+        sh "git clone -b ${branch} ${repoUrl} ${folder}"
+    } else {
+        // Windows
+        bat "git clone -b ${branch} ${repoUrl} ${folder}"
+    }
 }
+
 return this
