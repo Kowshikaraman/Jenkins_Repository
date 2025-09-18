@@ -1,25 +1,14 @@
-def run(String repoUrl, String branch) {
-    echo "📥 Cloning ${repoUrl} (branch: ${branch}) into Workspace"
+def run(String repoUrl, String branch, String folder) {
+    echo "📥 Cloning ${repoUrl} (branch: ${branch}) into ${folder}"
 
     // Detect OS
     if (isUnix()) {
         // Linux / macOS
-        sh "git clone -b ${branch} ${repoUrl} ."
+        sh "git clone -b ${branch} ${repoUrl} ${folder}"
     } else {
         // Windows
-        deleteDir()
-        bat "git clone -b ${branch} ${repoUrl} ."
+        bat "git clone -b ${branch} ${repoUrl} ${folder}"
     }
-
-    //     checkout([
-    //     $class: 'GitSCM',
-    //     branches: [[name: branch]],
-    //     doGenerateSubmoduleConfigurations: false,
-    //     extensions: [
-    //         [$class: 'CloneOption', depth: 1, shallow: true, noTags: false, timeout: 10]
-    //     ],
-    //     userRemoteConfigs: [[url: repoUrl]]
-    // ])
 }
 
 return this
