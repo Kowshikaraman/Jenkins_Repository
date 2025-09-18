@@ -4,3 +4,4 @@ def build(){
         bat """docker build -t ExpressApp:1.0.1 . """
     }
 }
+return this
