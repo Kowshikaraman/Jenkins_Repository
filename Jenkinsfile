@@ -19,5 +19,13 @@ pipeline {
                 }
             }
         }
+        stage("Create Container of ExpressJS App Image..."){
+            steps{
+                script{
+                    def createContainer = load "pipelines/createcontainer.groovy"
+                    createImage.run()
+                }
+            }
+        }
     }
 }
