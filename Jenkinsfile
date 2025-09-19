@@ -23,7 +23,17 @@ pipeline {
             steps{
                 script{
                     def createContainer = load "pipelines/createcontainer.groovy"
-                    createContainer.run("3200","3200","expressappcontainer","expressapp:1.0.1")
+                    switch(params.ENVIRONMENT){
+                        case "dev":
+                            echo "Creating container for Development Environment...."
+                            createContainer.run("3200","3200","expressappcontainer","expressapp:1.0.1")
+                        case "stage":
+                            echo "Creating container for Stage Environment...."
+                            createContainer.run("3300","3200","expressappcontainer","expressapp:1.0.1")    
+                        case "prod":                        
+                            echo "Creating container for Production Environment...."
+                            createContainer.run("3400","3200","expressappcontainer","expressapp:1.0.1")
+                    }
                 }
             }
         }
