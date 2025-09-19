@@ -1,6 +1,6 @@
 def validate(String CONTAINER_NAME){
     def exitStatus1 = bat(
-        script: "docker ps -aq -f \"name=^${CONTAINER_NAME}$\"",
+        script: "docker ps -aq -f \"name=^${CONTAINER_NAME}\\$\"",
         returnStdout: true
     ).trim()
     if(exitStatus1){
