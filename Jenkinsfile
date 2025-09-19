@@ -36,12 +36,18 @@ pipeline {
                         case "dev":
                             echo "Creating container for Development Environment...."
                             exitCode = createContainer.run("3200","3200","expressappcontainer","expressapp:1.0.1")
+                            break
                         case "stage":
                             echo "Creating container for Stage Environment...."
-                            exitCode = createContainer.run("3300","3200","expressappcontainer","expressapp:1.0.1")    
+                            exitCode = createContainer.run("3300","3200","expressappcontainer","expressapp:1.0.1")
+                            break    
                         case "prod":                        
                             echo "Creating container for Production Environment...."
                             exitCode = createContainer.run("3400","3200","expressappcontainer","expressapp:1.0.1")
+                            break
+                        default:
+                            echo "Container cannot be created since there is no environment selected...."
+
                     }
                     echo "The exit code status is ${exitCode}"
                 }
