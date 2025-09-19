@@ -25,6 +25,7 @@ pipeline{
         stage("Execute the respective pipeline script..."){
             steps{
                 script{
+            echo "Hello"
 
                 }
             }
