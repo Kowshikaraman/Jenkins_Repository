@@ -5,7 +5,7 @@ def run(String repoUrl, String branch, String folder) {
         if exist ExpressJSApp (
         rmdir /S /Q ExpressJSApp
         )
-        '''    // Detect OS
+        ''' 
         bat "git clone -b ${branch} ${repoUrl} ${folder}"
 }
 
