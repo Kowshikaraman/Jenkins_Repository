@@ -23,7 +23,7 @@ pipeline {
             steps{
                 script{
                     def createContainer = load "pipelines/createcontainer.groovy"
-                    createImage.run()
+                    createImage.run("3200","3200","expressappcontainer","expressapp:1.0.1")
                 }
             }
         }
