@@ -19,6 +19,14 @@ pipeline {
                 }
             }
         }
+        stage("Validate if container exists..."){
+            steps{
+                script{
+                    def validateContainer = load "pipelines/validatecontainer.groovy"
+                    validateContainer.validate("expressappcontainer")
+                }
+            }
+        }
         stage("Create Container of ExpressJS App Image..."){
             steps{
                 script{
