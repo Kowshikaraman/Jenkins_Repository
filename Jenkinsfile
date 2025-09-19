@@ -4,7 +4,7 @@ pipeline{
         choice(
             name:"EXECUTION_TYPE",
             choices:["Sample Jenkins Script","Declarative Pipeline","Scriptive Pipeline","Parallelization"],
-            descriptive:"Select the type of pipeline to execute"
+            description:"Select the type of pipeline to execute"
         )
     }
     stages{
