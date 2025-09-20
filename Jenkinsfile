@@ -41,7 +41,7 @@ pipeline{
                 // dir("workspace"){
                 switch(params.EXECUTION_TYPE) {
                     case "Sample Jenkins Script":
-                        def basicJenkins = load "demo-jenkins/Jenkins.groovy"
+                        def basicJenkins = load "demo-jenkins/jenkins.groovy"
                         basicJenkins.run()
                         // build job: 'demo-jenkins/Jenkins.groovy', wait: true
                     break
