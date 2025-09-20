@@ -29,7 +29,7 @@ pipeline{
                         bat "mkdir workspace"
 
 
-                        echo "Added workspace folder... ${cleanWrkspace}"
+                        echo "Added workspace folder by level2..."
                     }
                 }
             }
