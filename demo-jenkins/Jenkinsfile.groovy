@@ -13,8 +13,6 @@
 
 
 def run() {
-    stage("Hello World") {
         echo "Welcome!! This is my new message!!!"
-    }
 }
 return this
