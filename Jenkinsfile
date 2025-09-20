@@ -21,17 +21,13 @@ pipeline{
 
                         echo "Removed workspace folder... ${cleanWrkspace}"
 
-                        def createWorkspace = bat(
-                            script:"mkdir workspace",
-                            returnStatus:true
-                        )
+                        bat "mkdir workspace"
+
 
                         echo "Added workspace folder... ${cleanWrkspace}"
                     }else{
-                        def createWorkspace = bat(
-                            script:"mkdir workspace",
-                            returnStatus:true
-                        )
+                        bat "mkdir workspace"
+
 
                         echo "Added workspace folder... ${cleanWrkspace}"
                     }
@@ -42,16 +38,15 @@ pipeline{
             steps{
                 script{
 
-                def navigate2Workspace = bat(
-                    script:"cd workspace && dir",
-                    returnStatus:true
-                )
+                dir("workspace"){
                 switch(params.EXECUTION_TYPE) {
                     case "Sample Jenkins Script":
                         def basicJenkins = load "demo-jenkins/Jenkins"
                         basicJenkins.run()
                     break
                 }
+                }
+
                 }
             }
         }
