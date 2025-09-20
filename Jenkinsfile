@@ -1,5 +1,5 @@
 pipeline{
-    agent { label "slave1" }
+    agent any
     parameters{
         choice(
             name:"EXECUTION_TYPE",
