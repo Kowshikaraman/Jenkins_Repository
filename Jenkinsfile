@@ -27,6 +27,13 @@ pipeline{
                         )
 
                         echo "Added workspace folder... ${cleanWrkspace}"
+                    }else{
+                        def createWorkspace = bat(
+                            script:"mkdir workspace",
+                            returnStatus:true
+                        )
+
+                        echo "Added workspace folder... ${cleanWrkspace}"
                     }
                 }
             }
