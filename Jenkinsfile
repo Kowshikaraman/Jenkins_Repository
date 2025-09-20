@@ -46,7 +46,7 @@ pipeline{
                         // build job: 'demo-jenkins/Jenkins.groovy', wait: true
                     break
                     case "Scriptive Pipeline":
-                        def scriptRef = load "scriptedPipeline.groovy"
+                        def scriptRef = load "scriptedpipeline.groovy"
                 }
                 // }
 
