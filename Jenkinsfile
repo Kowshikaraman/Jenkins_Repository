@@ -36,7 +36,7 @@ pipeline{
                 script{
 
                 def navigate2Workspace = bat(
-                    script:"cd workspace",
+                    script:"cd ./workspace",
                     returnStatus:true
                 )
                 switch(params.EXECUTION_TYPE) {
