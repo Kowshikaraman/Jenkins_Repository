@@ -18,6 +18,8 @@ pipeline{
                             script:"rmdir workspace",
                             returnStatus:true
                         )
+
+                        bat """mkdir workspace"""
                     }
                 }
             }
@@ -25,8 +27,17 @@ pipeline{
         stage("Execute the respective pipeline script..."){
             steps{
                 script{
-            echo "Hello"
 
+                def navigate2Workspace = bat(
+                    script:"cd workspace",
+                    returnStatus:true
+                )
+                switch(params.EXECUTION_TYPE) {
+                    case "Sample Jenkins Script":
+                        def basicJenkins = load "demo-jenkins/Jenkins"
+                        basicJenkins.run()
+                    break
+                }
                 }
             }
         }

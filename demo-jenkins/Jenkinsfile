@@ -1,0 +1,16 @@
+def run(){
+    pipeline{
+        agent any
+        stages{
+            stage("Hello World..."){
+                steps{
+                    script{
+                        def helloWorld = "Welcome!! This is my new message!!!"
+                        echo "${helloWorld}"
+                    }
+                }
+            }
+        }
+    }
+}
+return this
