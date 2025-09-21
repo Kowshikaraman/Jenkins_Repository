@@ -52,7 +52,7 @@ pipeline{
                         def descPipeline = load "descriptive-pipeline/descriptivepipeline.groovy"
                     break
                     case "CRON Job":
-                        build job: "CRON-job/Jenkinsfile"
+                        build job: "CRON-job/cronjobpipeline.groovy"
                     break
                 }
                 // }
