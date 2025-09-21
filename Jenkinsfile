@@ -3,7 +3,7 @@ pipeline{
     parameters{
         choice(
             name:"EXECUTION_TYPE",
-            choices:["Sample Jenkins Script","Declarative Pipeline","Scriptive Pipeline","Parallelization"],
+            choices:["Sample Jenkins Script","Declarative Pipeline","Scriptive Pipeline","Parallelization","CRON Job"],
             description:"Select the type of pipeline to execute"
         )
     }
@@ -47,6 +47,13 @@ pipeline{
                     break
                     case "Scriptive Pipeline":
                         def scriptRef = load "scripted-pipeline/scriptedpipeline.groovy"
+                    break
+                    case "Declarative Pipeline":
+                        def descPipeline = load "descriptive-pipeline/descriptivepipeline.groovy"
+                    break
+                    case "CRON Job":
+                        build job: "CRON-job\Jenkinsfile"
+                    break
                 }
                 // }
 
